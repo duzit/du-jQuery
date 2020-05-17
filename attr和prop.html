@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>attr 和 prop</title>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    // 核心函数之后
+    $(function() {
+      /**
+       * attr(name | propertys | key, value | fn)
+       * 获取匹配的元素集合中的第一个元素的属性的值 或 设置每一个匹配元素的一个或多个属性
+       */
+      let attr1 = $('span').attr('class')
+      console.log('attr1--', attr1); // span1 获取第一个
+      
+      // 改变所有匹配属性 
+      $('span').attr('class', 'box') // 设置所有
+
+      // $('span').removeAttr('class') // 去除 class 属性
+      $('span').removeAttr('class name') // 去除 class name 属性
+
+      /**
+       * prop 获取匹配的元素集中第一个元素的属性（property）值或设置每一个匹配元素的一个或多个属性
+       */
+      console.log($('div').prop('class'), 'prop'); // div1 获取第一个
+
+      $('div').prop('class', 'box')
+
+      // 区别
+      let attrVal = $('input').attr('checked')
+      console.log(attrVal, 'input'); // checked / undefined
+      let propVal = $('input').prop('checked')
+      console.log(propVal, 'input'); // true / false
+      
+      $('input').prop('checked', true) // 设置所有
+      $('input').prop('disabled', true) // 设置所有
+    })
+    
+    
+  </script>
+</head>
+<body>
+  <!-- document.getElementsByTagName('span') [0].attributes['class', 'name'] -->
+  <span class="span1" name='span1'>span1</span>
+  <span class="span2" name='span2'>span2</span>
+
+  <div class="div1" title="div1">div1</div>
+  <div class="div2" title="div2">div2</div>
+
+  <input type="checkbox" checked>
+  <input type="checkbox" disabled>
+</body>
+</html>
+
+<style>
+  .span1 {
+    color: red;
+  }
+  .span2 {
+    color: blue;
+  }
+
+  .box {
+    font-size: 20px;
+    color: chartreuse;
+  }
+</style>
