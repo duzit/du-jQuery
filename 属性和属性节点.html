@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性和属性节点</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+      $(function() {
+        function Person() {
+
+        }
+        // 任何对象都有属性
+        let person = new Person()
+        // 两种不同的赋值方式
+        person.name = 'hello' // 属性 name
+        person['age'] = 10 // 属性 age
+        console.log(person)
+
+        // 获取属性节点 和 设置属性节点
+        let span = document.getElementsByTagName('span')[0]
+        console.log(span.getAttribute('class'), 'get') // span1
+        console.log(span.getAttribute('name'), 'get') // hello
+
+        span.setAttribute('class', 'box')
+        console.log(span.getAttribute('class'), 'get') // box
+
+        let btn = document.getElementsByTagName('button')[0]
+        btn.onclick = function() {
+          let input = document.getElementsByTagName('input')[0]
+          let value = input.value
+          $('img').attr('src', value)
+          // $('img').prop('src', value)
+        }
+      })
+    </script>
+</head>
+<body>
+  <!-- DOM 元素才有属性节点 在 sttributes 属性中 例如 class name -->
+  <span class="span1" name="hello">属性节点</span>
+  <br>
+  <input type="text">
+  <button >点击切换图片</button>
+  <br/>
+  <img src="https://cn.bing.com/sa/simg/hpc27.png" alt="">
+  <!-- <img src="https://cn.vuejs.org/images/logo.png" alt=""> -->
+</body>
+</html>

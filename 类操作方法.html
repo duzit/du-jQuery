@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类操作方法</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+      $(function() {
+        let btn1 = document.getElementsByTagName('button')[0]
+        btn1.onclick = function() {
+          // $('div').addClass('box')
+          // 添加多个使用空格分隔
+          $('div').addClass('box border')
+        }
+
+        let btn2 = document.getElementsByTagName('button')[1]
+        btn2.onclick = function() {
+          // $('div').removeClass('box')
+          $('div').removeClass('box border')
+        }
+
+        let btn3 = document.getElementsByTagName('button')[2]
+        btn3.onclick = function() {
+          // 有就删除 没有就添加
+          // $('div').toggleClass('box')
+          $('div').toggleClass('box border')
+        }
+      })
+    </script>
+</head>
+<body>
+  <button>添加</button>
+  <button>删除</button>
+  <button>切换</button>
+  <div></div>
+</body>
+</html>
+<style>
+  .box {
+    width: 100px;
+    height: 200px;
+    background: rebeccapurple;
+  }
+
+  .border {
+    border: 10px solid blue;
+  }
+</style>

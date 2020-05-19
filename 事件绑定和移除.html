@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件绑定和移除</title>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    // 事件绑定的两种方式
+    // 支持多个事件绑定 不会被覆盖
+    $(function() {
+      // 这种方式不能覆盖所有的js原生事件
+      $('button').click(function() {
+        alert(111)
+      })
+
+      function test() {
+        alert(222)
+      }
+      // 可以覆盖所有的js原生事件
+      $('button').on('click', test)
+
+      $('button').mouseenter(function() {
+        alert('mouseenter')
+      })
+
+      // 事件移除 off
+      $('button').off() // 取消 button 绑定的所有事件
+      // $('button').off('click') // 取消所有绑定的 click 事件
+      // $('button').off('click', test) // 取消 click 事件中 回调为 test 的事件绑定
+    })
+  </script>
+</head>
+<body>
+  <button>Button</button>
+</body>
+</html>

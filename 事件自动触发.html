@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件自动触发</title>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      $('.father').click(function(event) {
+        alert('father')
+      })
+
+      $('.son').click(function() {
+        alert('son')
+      })
+
+      // 自动触发 click 事件
+      // $('.father').trigger('click')
+
+      // 自动触发 click 事件 触发事件冒泡
+      // $('.son').trigger('click')
+      // 自动触发 click 事件 不会触发事件冒泡
+      // $('.son').triggerHandler('click')
+
+      $("input[type='submit']").click(function(event) {
+        alert('input')
+        // return false 
+        // event.preventDefault()
+      })
+
+      // $("input[type='submit']").trigger('click')
+      $("input[type='submit']").triggerHandler('click')
+
+    })
+  </script>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+  <a href="https://cn.bing.com/?FORM=Z9FD1">bing链接</a>
+  <form action="https://cn.bing.com/?FORM=Z9FD1">
+    <input type="submit">
+  </form>
+</body>
+</html>
+<style>
+  .father {
+    width: 200px;
+    height: 200px;
+    background: red;
+    margin-bottom: 20px;
+  }
+  .son {
+    width: 100px;
+    height: 100px;
+    background: black;
+  }
+</style>

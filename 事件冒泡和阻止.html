@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件冒泡和阻止</title>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      $('.father').click(function() {
+        alert('father')
+      })
+      // son 元素的 click 事件会传递给 father 
+      $('.son').click(function(event) {
+        alert('son')
+        // 阻止方法有两种
+        // return false
+        event.stopPropagation()
+      })
+
+      $('a').click(function(event) {
+        alert('aaa')
+        event.preventDefault()
+      })
+
+    })
+  </script>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+  <a href="https://cn.bing.com/?FORM=Z9FD1">bing链接</a>
+</body>
+</html>
+
+<style>
+  .father {
+    width: 200px;
+    height: 200px;
+    background: red;
+  }
+  .son {
+    width: 100px;
+    height: 100px;
+    background: black;
+  }
+</style>
