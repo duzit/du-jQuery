@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>移入移出事件</title>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      // mouseover mouseout 移入移出子集元素也会触发父级事件
+      // $('.father').mouseover(function() {
+      //   console.log('移入...');
+      // })
+      // $('.father').mouseout(function() {
+      //   console.log('移出...');
+      // })
+
+      // mouseenter mouseleave 移入移出子集元素不会触发父级事件
+      // $('.father').mouseenter(function() {
+      //   console.log('移入...')
+      // })
+      // $('.father').mouseleave(function() {
+      //   console.log('移出...')
+      // })
+
+      $('.father').hover(function() {
+        console.log('移入...')
+      }, function() {
+        console.log('移出...')
+      })
+    })
+  </script>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+</body>
+</html>
+<style>
+  .father {
+    width: 200px;
+    height: 200px;
+    background: red;
+  }
+  .son {
+    width: 100px;
+    height: 100px;
+    background: blue;
+  }
+</style>
