@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>显示隐藏动画</title>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      $('button').eq(0).click(function() {
+        // $('div').show(1000)
+        $('div').show(1000, function() {
+          alert(111)
+        })
+      })
+
+      $('button').eq(1).click(function() {
+        // $('div').hide(1000)
+        $('div').hide(1000, function() {
+          alert(222)
+        })
+      })
+
+      $('button').eq(2).click(function() {
+        $('div').toggle(1000)
+      })
+
+      // jQuery slideDown slideUp slideToggle 类似
+    })
+  </script>
+</head>
+<body>
+  <button>显示</button>
+  <button>隐藏</button>
+  <button>切换</button>
+  <div></div>
+</body>
+</html>
+
+<style>
+  div {
+    display: none;
+    width: 200px;
+    height: 200px;
+    background: blueviolet;
+    margin-top: 20px;
+  }
+</style>

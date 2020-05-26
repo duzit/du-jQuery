@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>监听页面滚动</title>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    $(function() {
+      // 监听页面滚动
+      $(window).scroll(function() {
+        // 获取偏移值
+        let offset = $("html,body").scrollTop()
+        console.log(offset, 123)
+        if (offset >= 100) {
+          $('div').show(1000)
+        } else {
+          $('div').hide(1000)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+  <div class="left"></div>
+  <div class="right"></div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</body>
+</html>
+<style>
+  .left {
+    display: none;
+    width: 100px;
+    height: 300px;
+    background: blueviolet;
+    position: fixed;
+    left: 0;
+    top: 30%;
+  }
+  .right {
+    display: none;
+    width: 100px;
+    height: 300px;
+    background: blueviolet;
+    position: fixed;
+    right: 0;
+    top: 30%;
+  }
+</style>
