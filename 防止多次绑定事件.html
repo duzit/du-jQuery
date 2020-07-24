@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防止多次绑定事件</title>
+  <script src="js/jquery-1.12.4.js"></script>
+  <script src="./js/hello.js"></script>
+</head>
+<body>
+  <ul>
+    <li class="la">li111
+      <span>111</span>
+    </li>
+    <li class="la">li222
+      <span>222</span>
+    </li>
+    <li class="la">li333
+      <span>333</span>
+    </li>
+  </ul>
+  <button class="button1">click</button>
+  <ul class="ul2">
+    <li class="la">li111
+      <span>111</span>
+    </li>
+    <li class="la">li222
+      <span>222</span>
+    </li>
+    <li class="la">li333
+      <span>333</span>
+    </li>
+  </ul>
+</body>
+</html>
+
+<style>
+
+  .ul2 {
+    display: none;
+  }
+  li > span {
+    display: none;
+  }
+</style>
