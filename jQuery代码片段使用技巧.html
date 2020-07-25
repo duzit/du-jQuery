@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery代码片段使用技巧</title>
+  <script src="./js/jquery.1.12.4.js"></script>
+  <link rel="stylesheet" href="css/index.css">
+  <a href="#" class="switch-css" rel="css/index.css">index.css</a>
+  <a href="#" class="switch-css" rel="css/test.css">test.css</a>
+  <script>
+    $(function() {
+      // 禁用右键
+      $(document).bind('contextmenu', function() {
+        return false;
+      })
+
+      // 补充搜索文本框（消失的搜索字段文本） 
+      $('input.text1').val('Enter something.');
+      textFill($('input.text1'));
+
+      // a 链接打开新窗口
+      $('a[href*="index"]').attr('target', '_blank');
+
+      // 检测浏览器
+      // $.browser 1.9版本废弃
+      console.log($.support, '$.support');
+
+      // css 样式切换器
+      $('a.switch-css').click(function() {
+        console.log($(this).attr('rel'), 'this.href');
+        console.log($('link[rel="stylesheet"]').attr('href'));
+        $('link[rel="stylesheet"]').attr('href', $(this).attr('rel'));
+      })
+
+      // 获取坐标
+      $('.mousemove').mousemove(function(e) {
+        console.log(`x:${e.pageX}; y:${e.pageY}`);
+      })
+
+      // 统计元素个数
+      console.log($('br').size(), 'size()');
+
+      // 验证元素是否存在
+      if ($('.text1').length) {
+        console.log('存在 text1');
+      }
+
+    })
+
+    function textFill(ele) {
+      let orgVal = ele.val();
+      ele.focus(function() {
+        if ($.trim(ele.val()) === orgVal) {
+          ele.val('');
+        }
+      })
+      ele.blur(function() {
+        if ($.trim(ele.val()) == '') {
+          ele.val(orgVal);
+        }
+      })
+    }
+  </script>
+</head>
+<body>
+  <br>
+  <input type="text" class="text1">
+  <br>
+  <a href="./index.html">index.html</a>
+  <br>
+  <div class="mousemove"></div>
+</body>
+</html>
+<style>
+  .mousemove {
+    width: 100px;
+    height: 100px;
+    background: rebeccapurple;
+  }
+</style>
