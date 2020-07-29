@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>append.appendTo.prepend.prependTo</title>
+  <script src="./js/jquery.1.12.4.js"></script>
+  <script>
+    $(function() {
+      $('button.btn1').click(function() {
+        // append 添加元素到结尾
+        // $('<li>新增的li</li>') 生成模板
+        $('ul').append($('<li>新增的li</li>'));
+      })
+
+      // 跟 append 的写法不同 添加到指定元素的末尾
+      $('button.btn2').click(function() {
+        $('<p>新增的段落</p>').appendTo($('.div1'));
+      })
+
+      // 在指定元素的前面添加元素
+      $('button.btn3').click(function() {
+        $('ul.ul2').prepend('<li>新增的li prepend</li>');
+      })
+
+      $('button.btn4').click(function() {
+        $('<li>新增的li prepend</li>').prependTo($('ul.ul3'));
+      })
+
+      // 在相应元素前后添加同级元素
+      $('button.btn5').click(function() {
+        $('.after').after('<p>after 段落新增</p>');
+      })
+
+      $('button.btn6').click(function() {
+        $('.before').before('<p>before 段落新增</p>');
+      })
+    })
+  </script>
+</head>
+<body>
+  <button class="btn1">append</button>
+  <ul>
+    <li>第一个li</li>
+    <li>第二个li</li>
+    <li>第三个li</li>
+  </ul>
+  <p>段落</p>
+  <hr>
+  <button class="btn2">appendTo</button>
+  <div class="div1">
+    <p>段落111</p>
+  </div>
+  <div class="div2"></div>
+  <hr>
+  <button class="btn3">prepend</button>
+  <ul class="ul2">
+    <li>第一个li</li>
+    <li>第二个li</li>
+  </ul>
+  <hr>
+  <button class="btn4">prependTo</button>
+  <ul class="ul3">
+    <li>第一个li</li>
+    <li>第二个li</li>
+  </ul>
+  <hr>
+  <button class="btn5">after</button>
+  <p class="after">after 段落</p>
+  <hr>
+  <button class="btn6">before</button>
+  <p class="before">before 段落</p>
+</body>
+</html>
