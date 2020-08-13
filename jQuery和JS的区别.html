@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery和JS的区别</title>
+  <script src="./js/jquery-1.12.4.js"></script>
+  <script>
+    window.onload = () => {
+      let img = document.getElementById('image');
+      // let width = img.offsetWidth;
+      let {width} = window.getComputedStyle(img, null);
+      // 原生的js 等到图片加载完成后 可以获取元素的宽高
+      console.log(width, 'js width');
+    }
+
+    /*
+      原生js和jq入口函数加载模式不同
+      原生js 会等到DOM元素和图片加载完毕才会执行
+      jq会等到DOM元素加载完毕 但不会等到图片资源加载完毕 就会执行
+    */
+
+    $(function() {
+      let $img = document.getElementById('image');
+      // let $width = $img.offsetWidth;
+      let {width} = window.getComputedStyle($img, null);
+      // 清除缓存后 jq 拿不到元素宽高 原因是jq不等到图片加载后即获取元素的宽高 
+      // 等到图片加载完成后能获取宽高 原因是浏览器会缓存
+      console.log(width, 'jq width');
+
+    })
+
+    // 原生js 入口函数会被覆盖 以下只会弹出222
+    // window.onload = function() {
+    //   alert(111)
+    // }
+    // window.onload = function() {
+    //   alert(222)
+    // }
+
+    // jq 入口函数不会被覆盖  以下会弹出111 222
+    // $(function() {
+    //   alert(111)
+    // })
+    // $(function() {
+    //   alert(222)
+    // })
+  </script>
+</head>
+<body>
+  <img id="image" src="https://cn.vuejs.org/images/logo.png" alt="">
+</body>
+</html>
